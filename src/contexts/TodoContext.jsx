@@ -3,6 +3,7 @@ import {v4 as uuidv4} from "uuid";
 const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
+  const [filter, setFilter] = useState("completed");
   const [todos, setTodos] = useState([{
     id: 1,
     text: "React Öğreniyom",
@@ -40,6 +41,8 @@ const values ={
     addTodo,
     toggleTodo,
    destroyTodo,
+   filter,
+   setFilter,
 };
 
 return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>
